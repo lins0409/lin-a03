@@ -12,14 +12,24 @@ import java.util.Scanner;
  */
 public class Solution28 {
     //initialize scanner
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main (String[] args){
+        Solution28 sol = new Solution28();
         //make an int total
+        int total = 0, i;
         //create a for loop that will repeat and ask for the value
-            //add the total each time
+        for (i = 0; i < 5; i ++){
+            System.out.print("Enter a number: ");
+            //add the total each time it goes through the loop
+            total += scanner.nextInt();
+        }
         //call method that will print out the solution
+        sol.printResults(total);
     }
     //pass in the total
-    void printResults(){
+    void printResults(int total){
         //print out the solution
+        System.out.print("The total is " + total + ".");
     }
 }
