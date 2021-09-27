@@ -12,16 +12,39 @@ import java.util.Scanner;
  */
 public class Solution29 {
     //initialize scanner
+    private static final Scanner scanner = new Scanner(System.in);
     public static void main (String [] args){
+        Solution29 sol = new Solution29();
+
         //prompt for the rate of return
-            //if the value is zero, say that's it not a valid input and prompt again
-            //if the value is non-numeric,  say that it is invalid and prompt again
+        System.out.print("What is the rate of return? ");
+        //if the value is non-numeric,  say that it is invalid and prompt again
+        while(!scanner.hasNextInt()){
+            System.out.print("Sorry. That's not a valid input.\n");
+            scanner.next();
+            sol.mainCaller();
+        }
+        int rate = scanner.nextInt();
+        if ( rate == 0){
+            System.out.print("Sorry. That's not a valid input.\n");
+            //scanner.next();
+            sol.mainCaller();
+        }
         //if the value is good call the print function
+        sol.printResults(rate);
+
+    }
+    //function to call main again for the loop
+    void mainCaller (){
+        main(null);
     }
     //print and calculate function
     //pass in the rate of return
     void printResults(int rate){
         //years = 72/ rate
+        //int value = Integer.parseInt(rate);
+        int years = 72/rate;
         //print out the results of the equation
+        System.out.print("It will take "+ years +" years to double your initial investment.");
     }
 }
