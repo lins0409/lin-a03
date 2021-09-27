@@ -28,7 +28,6 @@ public class Solution29 {
         //if the value is zero, then make it loop again until a non-zero is added
         if ( rate == 0){
             System.out.print("Sorry. That's not a valid input.\n");
-            //scanner.next();
             sol.mainCaller();
         }
         //if the value is good call the print function
