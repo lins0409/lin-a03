@@ -3,6 +3,7 @@
  *  Copyright 2021 Sue Lin
  */
 package baseline;
+
 import java.util.Scanner;
 /*
 * pseudocode
@@ -11,26 +12,32 @@ import java.util.Scanner;
 *Write a program that will help you determine how many months it will take to pay off a credit card balance. The program should ask the user to enter the balance of a credit card, the APR of the card, and their monthly payment. The program should then return the number of months needed (rounded up to the next integer value).
 *
  */
+
+
 public class Solution26 {
     //initialize scanner
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main (String[] args){
-        //initialize and instance of Solution26
         //First prompt the user for their balance
+        System.out.print("What is your balance? ");
         //scan in the value and store in a variable
+        double balance = scanner.nextDouble();
         //ask for what the apr is on the card as a percent
+        System.out.print("What is the APR on the card (as a percent)? ");
         //store the value
+        double APR = scanner.nextDouble();
+        //changes the value into a percentage
+        APR = APR/100;
         //ask what the monthly payment they can make is
+        System.out.print("What is the monthly payment you can make? ");
         //store the value
+        double payment = scanner.nextDouble();
+
         //call paymentCalculator
-    }
-}
-//Payment calculator function
-class PaymentCalculator{
-    //take in APR, balance, and payment amount
-    void calculateMonthsUntilPaidOff(){
-        //create an int n for the result
-        //divide APR by 365 and set to int i
-        //calculate -(1/30) * log(1 + balance/payment * (1 - (1 + i)^30)) / log(1 + i)
+        int months = PaymentCalculator.calculateMonthsUntilPaidOff(APR, balance, payment);
+
+        //print out the results
+        System.out.print("It will take " + months + " months to pay off this card.");
     }
 }
