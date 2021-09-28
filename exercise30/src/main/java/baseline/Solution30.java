@@ -10,13 +10,23 @@ import java.util.Scanner;
 *Create a program that generates a multiplication table for the numbers 1 through 12 (inclusive).
  */
 public class Solution30 {
-    //initialize scanner
+
     public static void main (String[] args){
-        //int i will be 1
+        Solution30 sol = new Solution30();
         //int j will be 12
-        //create a for loop that will go through all the numbers
-            //print out i first all the way until 12
-            //multiply i by k who will increase each loop until it hits j
-        //make all the values printed out to be 3 spaces away
+        int j = 12;
+        //call print function
+        sol.printChart(j);
+    }
+    //print function that formats the printing of the charts
+    void printChart(int tableSize){
+        System.out.println();
+        ////multiply i by k who will increase each loop until it hits j
+        for(int i = 1; i <= tableSize; i++){
+            for(int j = 1; j <= tableSize; j ++){
+                System.out.format("%4d", i*j);
+            }
+            System.out.println();
+        }
     }
 }
