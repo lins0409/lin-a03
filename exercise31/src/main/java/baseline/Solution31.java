@@ -12,21 +12,64 @@ import java.util.Scanner;
  */
 public class Solution31 {
     //initialize scanner
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main (String[] args){
+        Solution31 sol = new Solution31();
         //prompt for age
-        //scan the age in and store the value
-        //prompt for their resting pulse
+        System.out.print("Enter your age: ");
         //make sure that if the entered result isn't a number don't continue
+        while(!scanner.hasNextInt()){
+            System.out.print("Please enter only a numeric value.\n");
+            scanner.next();
+            sol.mainCaller();;
+        }
+        //scan the age in and store the value
+        int age = scanner.nextInt();
+        //call the resting heart rate storage function
+       sol.restingHeart(age);
+    }
+
+    //function to call main again for the loop
+    void mainCaller (){
+        main(null);
+    }
+
+    //separate them into two functions so that you can't proceed until the values are numbers
+    void restingHeart(int age){
+        Solution31 sol = new Solution31();
+        //prompt for their resting pulse
+        System.out.print("Enter your resting heart rate: ");
         //scan the value and store it
+        while(!scanner.hasNextInt()){
+            System.out.print("Please enter only a numeric value.\n");
+            scanner.next();
+            sol.restingHeart(age);
+        }
+        int rate = scanner.nextInt();
         //call the targetHeartRate function
+        sol.targetHeartRate(age, rate);
     }
 
     //calculates and prints out the table
     //pass in heart rate and age
-    void targetHeartRate(){
+    void targetHeartRate(int age, int restingHR){
+        //intialize the intensity at 55
+        int intensity = 55;
         //print out resting heart rate and age in the same line
-        //calculate the target heart rate
+        System.out.println("Resting Pulse: " + restingHR + " Age: " + age);
+
         //print out intensity and rate separated by lines
+        System.out.println("Intensity    | Rate ");
+        System.out.println("-------------|--------");
         //make a loop to print out the percentages
+        while (intensity <96){
+            //calculate the target heart rate
+            int TargetHeartRate =  (((220 - age) - restingHR) * intensity/100) + restingHR;
+            System.out.println(intensity+"%          | "+ Math.round(TargetHeartRate) +"bpm");
+            //increase the intensity by 5
+            intensity+=5;
+        }
     }
+
 }
