@@ -14,52 +14,163 @@ import java.util.Scanner;
  */
 public class Solution32 {
     //initialize scanner
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final Solution32 sol = new Solution32();
+
     public static void main (String[] args){
         //print put the starting prompt
+        System.out.print("Let's play Guess the Number!\n\n");
+        sol.startGame();
+    }
+
+    void startGame(){
         //prompt for the starting level difficulty
+        System.out.print("Enter the difficulty level (1, 2, or 3): ");
         //make sure that the value entered is a number
+        while(!scanner.hasNextInt()){
+            System.out.print("Invalid input, please enter a digit between 1 and 3\n");
+            scanner.next();
+        }
         //store the value to be passed into the if statements to call the correct
+        int level = scanner.nextInt();
         //if the level is 1, run the easy mode function
+        if (level == 1){
+            sol.easyMode();
+        }
         //if the level is 2, run the medium mode function
+        else if(level == 2){
+            sol.mediumMode();
+        }
         //if the level is 3, run the hard more function
+        else if(level == 3){
+            sol.hardMode();
+        }
     }
     //easy mode function
     void easyMode(){
+        int min = 1;
+        int max = 10;
         //randomly generate a number between 1 and 10
+        int number = (int)(Math.random()*(max-min+1)+min);
         //start the guess counter at 0
+        int counter = 0;
+        int guess;
         //have the computer print that it has the number, prompt for the user's guess
-        //if the guess is < than the random number, say they are too low and prompt them to guess again
-            //increase the guess counter by one, even if the value is a character
-        //if the guess is > than the random number, say that it is too high and prompt to guess again
-            //increase guess counter by one, even if the value is a character
-        //if they guess correctly, they that they got it in however many guesses have passed
+        System.out.print("I have my number. What's your guess? ");
+        do {
+            guess = scanner.nextInt();
+            counter++;
+            /*if (!Character.isDigit(guess)){
+                status = false;
+            }*/
+            //if they guess correctly, they that they got it in however many guesses have passed
+            if (guess == number) {
+                System.out.print("You got it in " + counter + " guesses!");
+            }
+            //if the guess is < than the random number, say they are too low and prompt them to guess again
+            else if (guess < number) {
+                //increase the guess counter by one, even if the value is a character
+                System.out.print("Too low. Guess again: ");
+            }
+            //if the guess is > than the random number, say that it is too high and prompt to guess again
+            else if (guess > number) {
+                //increase guess counter by one, even if the value is a character
+                System.out.print("Too high. Guess again: ");
+            }
+            //if (!status){
+                //System.out.print("Invalid input. Guess again: ");
+            //}
+        } while (guess != number);
 
         //prompt if they want to play again
+        System.out.print("\nDo you wish to play again Y/N ? ");
+        char selection = scanner.next().charAt(0);
+        //if the answer us y or Y, call main. else break
+        if(selection == 'y' || selection == 'Y'){
+            sol.startGame();
+        }
+        else {
+            System.exit(0);
+        }
     }
+
     //medium mode function
     void mediumMode(){
-        //randomly generate a number between 1 and 100
+        int min = 1;
+        int max = 100;
+        int number = (int)(Math.random()*(max-min+1)+min);
         //start the guess counter at 0
+        int counter = 0;
+        int guess;
         //have the computer print that it has the number, prompt for the user's guess
-        //if the guess is < than the random number, say they are too low and prompt them to guess again
-            //increase the guess counter by one, even if the value is a character
-        //if the guess is > than the random number, say that it is too high and prompt to guess again
-            //increase guess counter by one, even if the value is a character
-        //if they guess correctly, they that they got it in however many guesses have passed
-
+        System.out.print("I have my number. What's your guess? ");
+        do {
+            guess = scanner.nextInt();
+            counter++;
+            //if they guess correctly, they that they got it in however many guesses have passed
+            if (guess == number) {
+                System.out.print("You got it in " + counter + " guesses!");
+            }
+            //if the guess is < than the random number, say they are too low and prompt them to guess again
+            else if (guess < number) {
+                //increase the guess counter by one, even if the value is a character
+                System.out.print("Too low. Guess again: ");
+            }
+            //if the guess is > than the random number, say that it is too high and prompt to guess again
+            else if (guess > number) {
+                //increase guess counter by one, even if the value is a character
+                System.out.print("Too high. Guess again: ");
+            }
+        } while (guess != number);
         //prompt if they want to play again
+        System.out.print("\nDo you wish to play again Y/N ? ");
+        char selection = scanner.next().charAt(0);
+        //if the answer us y or Y, call main. else break
+        if(selection == 'y' || selection == 'Y'){
+            sol.startGame();
+        }
+        else {
+            System.exit(0);
+        }
     }
     //hard mode function
     void hardMode(){
+        int min = 1;
+        int max = 1000;
         //randomly generate a number between 1 and 1000
+        int number = (int)(Math.random()*(max-min+1)+min);
         //start the guess counter at 0
+        int counter = 0;
+        int guess;
         //have the computer print that it has the number, prompt for the user's guess
-        //if the guess is < than the random number, say they are too low and prompt them to guess again
-            //increase the guess counter by one, even if the value is a character
-        //if the guess is > than the random number, say that it is too high and prompt to guess again
-            //increase guess counter by one, even if the value is a character
-        //if they guess correctly, they that they got it in however many guesses have passed
-
+        System.out.print("I have my number. What's your guess? ");
+        do {
+            guess = scanner.nextInt();
+            counter++;
+            //if they guess correctly, they that they got it in however many guesses have passed
+            if (guess == number) {
+                System.out.print("You got it in " + counter + " guesses!");
+            }
+            //if the guess is < than the random number, say they are too low and prompt them to guess again
+            else if (guess < number) {
+                //increase the guess counter by one, even if the value is a character
+                System.out.print("Too low. Guess again: ");
+            }
+            //if the guess is > than the random number, say that it is too high and prompt to guess again
+            else if (guess > number) {
+                //increase guess counter by one, even if the value is a character
+                System.out.print("Too high. Guess again: ");
+            }
+        } while (guess != number);
         //prompt if they want to play again
+        System.out.print("\nDo you wish to play again Y/N ? ");
+        char selection = scanner.next().charAt(0);
+        //if the answer us y or Y, call main. else break
+        if(selection == 'y' || selection == 'Y'){
+            sol.startGame();
+        }
+        else {
+            System.exit(0);
+        }
     }
 }
