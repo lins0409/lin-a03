@@ -38,11 +38,13 @@ public class Solution27 {
         System.out.print("Enter the employee ID: ");
         //store the value
         String ID = scanner.nextLine();
-        //pass all the values into the validateInput function
-        sol.validateInput(firstName, lastName, zip, ID);
+
+        //pass all the values into the validateInput function and return the print string
+        results = sol.validateInput(firstName, lastName, zip, ID);
+        System.out.print(results);
     }
 
-    void validateInput(String first, String last, String zip, String ID){
+    String validateInput(String first, String last, String zip, String ID){
         //check if firstName bool is true
         boolean firstName = firstName(first);
         //check if lastName bool is true
@@ -55,7 +57,7 @@ public class Solution27 {
         if (firstName && lastName && zipCode && employeeID){
             results += "There were no errors found.\n";
         }
-        System.out.print(results);
+        return results;
     }
 
     //pass in the string for the first name
@@ -117,7 +119,7 @@ public class Solution27 {
         //return the bool
         return status;
     }
-    
+
     //pass in employeeID number
     boolean employeeID(String ID){
         boolean status = true;
