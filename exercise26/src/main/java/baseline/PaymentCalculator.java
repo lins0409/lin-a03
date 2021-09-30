@@ -2,9 +2,19 @@ package baseline;
 import baseline.Solution26;
 
 class PaymentCalculator{
+
+    public double balance, APR, payment;
+    //constructor to store all the values
+    public PaymentCalculator(double balance, double APR, double payment){
+        this.balance = balance;
+        this.APR = APR;
+        this.payment = payment;
+    }
     //does not take in parameters (APR, balance, and payment amount)
-    public static int calculateMonthsUntilPaidOff(double APR, double balance, double payment){
-        Solution26 sol = new Solution26();
+    public int calculateMonthsUntilPaidOff(){
+        double APR = this.APR;
+        double balance = this.balance;
+        double payment = this.payment;
         //create an int n for the result
         int n;
 
