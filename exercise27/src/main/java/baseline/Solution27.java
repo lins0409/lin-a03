@@ -41,6 +41,7 @@ public class Solution27 {
         //pass all the values into the validateInput function
         sol.validateInput(firstName, lastName, zip, ID);
     }
+
     void validateInput(String first, String last, String zip, String ID){
         //check if firstName bool is true
         boolean firstName = firstName(first);
@@ -56,6 +57,7 @@ public class Solution27 {
         }
         System.out.print(results);
     }
+
     //pass in the string for the first name
     boolean firstName(String firstName){
         boolean status = true;
@@ -74,6 +76,7 @@ public class Solution27 {
         //return the bool
         return status;
     }
+
     //pass in the last name string
     boolean lastName(String last){
         boolean status = true;
@@ -92,6 +95,7 @@ public class Solution27 {
         //return the bool
         return status;
     }
+
     //pass in the zipcode
     boolean zipCode(String zip){
         boolean status = true;
@@ -113,6 +117,7 @@ public class Solution27 {
         //return the bool
         return status;
     }
+    
     //pass in employeeID number
     boolean employeeID(String ID){
         boolean status = true;
