@@ -13,9 +13,10 @@ class Solution24Test {
         String one = "tone";
         String two = "note";
 
+        boolean expected = true;
         boolean actual = sol.isAnagram(one, two);
 
-        assertTrue(actual);
+        assertEquals(expected, actual);
     }
 
 }
