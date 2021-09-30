@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class Solution25Test {
 
     @Test
-    void passwordValidator1() {
+    void testPasswordValidator(){
         Solution25 sol = new Solution25();
 
-        String passwordOne = "12345";
-        String one = "The password '12345' is a very weak password.";
-        String actual = sol.passwordValidator(passwordOne);
+        String password = "1337h@xor!";
+        String expected = "' is a very strong password.";
+        String actual = sol.passwordValidator(password);
 
-        assertEquals(one , actual);
+        assertEquals(expected, actual);
     }
 }
