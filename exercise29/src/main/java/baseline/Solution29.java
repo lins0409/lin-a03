@@ -13,6 +13,12 @@ import java.util.Scanner;
 public class Solution29 {
     //initialize scanner
     private static final Scanner scanner = new Scanner(System.in);
+
+    //function to call main again for the loop
+    void mainCaller (){
+        main(null);
+    }
+
     public static void main (String [] args){
         Solution29 sol = new Solution29();
 
@@ -25,26 +31,28 @@ public class Solution29 {
             sol.mainCaller();
         }
         int rate = scanner.nextInt();
+
         //if the value is zero, then make it loop again until a non-zero is added
         if ( rate == 0){
             System.out.print("Sorry. That's not a valid input.\n");
             sol.mainCaller();
         }
         //if the value is good call the print function
-        sol.printResults(rate);
+        String results = sol.printResults(rate);
+        System.out.print(results);
 
+        return;
     }
-    //function to call main again for the loop
-    void mainCaller (){
-        main(null);
-    }
+
     //print and calculate function
     //pass in the rate of return
-    void printResults(int rate){
+    String printResults(int rate){
+        String results;
         //years = 72/ rate
         //int value = Integer.parseInt(rate);
         int years = 72/rate;
         //print out the results of the equation
-        System.out.print("It will take "+ years +" years to double your initial investment.");
+        results = "It will take "+ years +" years to double your initial investment." ;
+        return results;
     }
 }
