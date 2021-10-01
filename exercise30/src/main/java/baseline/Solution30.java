@@ -18,13 +18,19 @@ public class Solution30 {
         //call print function
         sol.printChart(j);
     }
+    
+    //for the values to be multiplied by each other
+    int multiplication(int i, int j){
+        return i*j;
+    }
+
     //print function that formats the printing of the charts
     void printChart(int tableSize){
         System.out.println();
         ////multiply i by k who will increase each loop until it hits j
         for(int i = 1; i <= tableSize; i++){
             for(int j = 1; j <= tableSize; j ++){
-                System.out.format("%4d", i*j);
+                System.out.format("%4d", multiplication(i, j));
             }
             System.out.println();
         }

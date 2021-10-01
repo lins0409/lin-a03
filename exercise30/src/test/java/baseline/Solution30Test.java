@@ -9,6 +9,9 @@ class Solution30Test {
     void testFormatting(){
         Solution30 sol = new Solution30();
         int tableSize = 10;
-        sol.printChart(tableSize);
+        int actual = sol.multiplication(10, tableSize);
+        int expected = 100;
+
+        assertEquals(expected, actual);
     }
 }
