@@ -31,11 +31,13 @@ public class Solution37 {
         int numNumbers = scanner.nextInt();
 
         //pass it into a random password generator
-        sol.randomPasswordMaker(length, numSpecial, numNumbers);
+        String results = sol.randomPasswordMaker(length, numSpecial, numNumbers);
+        System.out.print(results);
     }
+
     //random password generator
     //pass in all the numbers for things
-    void randomPasswordMaker(int length, int special, int num){
+    String randomPasswordMaker(int length, int special, int num){
         //make a string for the letters, special characters, and numbers
         String letters = "abcdefghijklmnopqrstuvwxyz";
         String specialCharacters = "!@#$%^&*";
@@ -74,6 +76,8 @@ public class Solution37 {
         }
 
         //print out the password
-        System.out.print("Your password is " + password);
+        String results = "Your password is " + password;
+
+        return results;
     }
 }
