@@ -22,12 +22,14 @@ public class Solution31 {
         while(!scanner.hasNextInt()){
             System.out.print("Please enter only a numeric value.\n");
             scanner.next();
-            sol.mainCaller();;
+            sol.mainCaller();
         }
         //scan the age in and store the value
         int age = scanner.nextInt();
         //call the resting heart rate storage function
-       sol.restingHeart(age);
+        int restingHR = sol.restingHeart();
+
+        sol.targetHeartRate(age, restingHR);
     }
 
     //function to call main again for the loop
@@ -36,25 +38,22 @@ public class Solution31 {
     }
 
     //separate them into two functions so that you can't proceed until the values are numbers
-    void restingHeart(int age){
-        Solution31 sol = new Solution31();
+    int restingHeart(){
         //prompt for their resting pulse
         System.out.print("Enter your resting heart rate: ");
         //scan the value and store it
         while(!scanner.hasNextInt()){
             System.out.print("Please enter only a numeric value.\n");
             scanner.next();
-            sol.restingHeart(age);
         }
-        int rate = scanner.nextInt();
         //call the targetHeartRate function
-        sol.targetHeartRate(age, rate);
+        return scanner.nextInt();
     }
 
     //calculates and prints out the table
     //pass in heart rate and age
     void targetHeartRate(int age, int restingHR){
-        //intialize the intensity at 55
+        //initialize the intensity at 55
         int intensity = 55;
         //print out resting heart rate and age in the same line
         System.out.println("Resting Pulse: " + restingHR + " Age: " + age);
@@ -65,11 +64,16 @@ public class Solution31 {
         //make a loop to print out the percentages
         while (intensity <96){
             //calculate the target heart rate
-            int TargetHeartRate =  (((220 - age) - restingHR) * intensity/100) + restingHR;
-            System.out.println(intensity+"%          | "+ Math.round(TargetHeartRate) +"bpm");
+            int TargetHeartRate = heartRateCalc(age, restingHR, intensity);
+            System.out.println(intensity +"%          | "+ Math.round(TargetHeartRate) +"bpm");
             //increase the intensity by 5
             intensity+=5;
         }
+    }
+
+    //calculate heart rate function
+    int heartRateCalc(int age, int resting, int intensity){
+        return  (((220 - age) - resting) * intensity/100) + resting;
     }
 
 }
