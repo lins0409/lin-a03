@@ -13,6 +13,8 @@ import java.util.ArrayList;
 *Given the following data set, create a program that sorts all employees by last name and prints them to the screen in a tabular format.
  */
 public class Solution39 {
+    //initialize class
+    public static final Solution39 sol = new Solution39();
 
     public static void main (String[] args){
         //create a list that is equal to all the items in the employee array
@@ -33,6 +35,10 @@ public class Solution39 {
             }
         });
 
+        sol.printStatments(list);
+    }
+
+    void printStatments(List<Employees> list){
         //formatted print statement
         System.out.println("Name                | Position          | Separation Date");
         System.out.println("--------------------|-------------------|----------------");
