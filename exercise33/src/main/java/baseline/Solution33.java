@@ -29,17 +29,19 @@ public class Solution33 {
         //generate a random number
         int randomNumber = random.nextInt(input.length());
         //run the random response function
-        sol.randomResponse(randomNumber);
+        String output = sol.randomResponse(randomNumber);
+
+        System.out.println(output);
     }
 
     //function that generates a response for the user
-    void randomResponse(int randomNumber){
+    String randomResponse(int randomNumber){
         //create an array of responses
         String[] responses = {"Yes","No","Maybe","Ask again later."};
         //print out the response
         String output = responses[randomNumber];
 
         System.out.println();
-        System.out.println(output);
+        return output;
     }
 }

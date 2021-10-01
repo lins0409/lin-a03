@@ -66,7 +66,7 @@ public class Solution32 {
         if(!isNumeric(string)){
             string = "Invalid guess. Guess again: ";
         }
-        
+
         //if they guess correctly, they that they got it in however many guesses have passed
         if (Integer.parseInt(guess) == number) {
             string = "You got it in " + counter + " guesses!";
