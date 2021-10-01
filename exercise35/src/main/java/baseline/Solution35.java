@@ -24,6 +24,7 @@ public class Solution35 {
         //create an array to store all the names that will be entered
         ArrayList<String> names = new ArrayList<String>();
         String input;
+
         //prompt user to enter a name
         //loop it and scan the value, storing it in an array until the user enters no input
         do {
@@ -32,15 +33,17 @@ public class Solution35 {
             names.add(input);
         } while (!input.isEmpty());
         names.remove(names.size() - 1);
-        //call the randomizer
-        sol.randomizer(names);
+
+        //set the winner to the randomizer
+        String result = sol.randomizer(names);
+        System.out.println("The winner is... " + result + ".");
     }
 
     //pass in the names that were entered
-    void randomizer(ArrayList names){
+    String randomizer(ArrayList names){
         //randomly choose a name at random
         String result = (String) names.get(random.nextInt(names.size()));
         //print out who the winner is
-        System.out.println("The winner is... " + result + ".");
+        return result;
     }
 }
