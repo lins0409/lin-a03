@@ -14,6 +14,7 @@ import java.util.Scanner;
 public class Solution38 {
     //initialize the scanner
     private static final Scanner scanner = new Scanner(System.in);
+    public static final Solution38 sol = new Solution38();
 
     public static void main (String[] args){
         //prompt the user for a list of numbers
@@ -23,7 +24,7 @@ public class Solution38 {
         //store the numbers in an array and split them via space
         String[] numbers = input.split(" ");
         //call the returnEven function
-        Integer[] array = filterEvenNumbers(numbers);
+        Integer[] array = sol.filterEvenNumbers(numbers);
 
         //print out the even values in the new array
         System.out.print("The even numbers are " );
@@ -38,7 +39,7 @@ public class Solution38 {
     }
 
     //only returns even numbers of the array
-     public static Integer[] filterEvenNumbers(String[] numbers){
+     public Integer[] filterEvenNumbers(String[] numbers){
         //create a new array for the even numbers only
         ArrayList<Integer> evens = new ArrayList<>();
         //loop for the number of elements in the array
