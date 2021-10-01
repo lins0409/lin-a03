@@ -18,7 +18,7 @@ public class Solution30 {
         //call print function
         sol.printChart(j);
     }
-    
+
     //for the values to be multiplied by each other
     int multiplication(int i, int j){
         return i*j;
